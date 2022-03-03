@@ -1,7 +1,7 @@
 #include <philosofers.h>
 
-void	error_message(char *s)
+void	print_and_exit(char *s)
 {
-	printf("%s\n", s);
-	return ;
+	printf("Error: %s\n", s);
+	exit(1);
 }
