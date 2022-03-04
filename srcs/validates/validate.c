@@ -14,10 +14,10 @@ static int	check_if_is_digit_only(char **argv)
 	int	j;
 
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
 		j = 0;
-		if (ft_atoi(argv[i] ) > INT_MAX || ft_atoi(argv[i]) < 0)
+		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < 0)
 			return (1);
 		while (argv[i][j])
 		{

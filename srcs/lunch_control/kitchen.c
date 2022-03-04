@@ -5,6 +5,7 @@ void	*one_philo(t_philo *philo)
 	pthread_mutex_lock(philo->left_fork);
 	show_inform(philo, "has taken a fork");
 	pthread_mutex_unlock(philo->left_fork);
+	return(NULL);
 }
 
 int	someone_died(t_philo *philo)
@@ -21,7 +22,7 @@ int	someone_died(t_philo *philo)
 
 int	check_satisfaction(t_philo *philo)
 {
-	int who_already_ate;
+	int	who_already_ate;
 	int	philo_counter;
 
 	who_already_ate = 0;

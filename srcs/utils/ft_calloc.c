@@ -15,4 +15,3 @@ void	*ft_calloc(size_t nbytes, size_t sizemem)
 	ft_bzero(ptr, (nbytes * sizemem));
 	return (ptr);
 }
-

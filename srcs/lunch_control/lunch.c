@@ -17,7 +17,8 @@ void	*philo_routine(void *philo)
 		show_inform(philo, "sleeping");
 		miliseconds_sleep(aux->values->time_sleep);
 		show_inform(philo, "thinking");
- 	}
+	}
+	return (NULL);
 }
 
 void	*death_checker(void *philo)
@@ -47,21 +48,22 @@ void	*death_checker(void *philo)
 	return (NULL);
 }
 
-void	lets_lunch(t_philo *philo, int num_philos)
+void	lets_lunch(t_philo *philo)
 {
 	pthread_t	infos;
 	int			i;
 
 	i = 0;
 	philo->values->first_eat = current_time();
-	while(i < philo->values->num_philo)
+	while (i < philo->values->num_philo)
 	{
-		pthread_create(&philo[i].philos_thread, NULL, &philo_routine, &philo[i]);
+		pthread_create(&philo[i].philos_thread, NULL, &philo_routine, \
+		&philo[i]);
 		i++;
 	}
 	pthread_create(&infos, NULL, &death_checker, philo);
 	i = 0;
-	while(i < philo->values->num_philo)
+	while (i < philo->values->num_philo)
 	{
 		pthread_join(philo[i].philos_thread, NULL);
 		i++;

@@ -10,7 +10,7 @@ int	main(int argc, char **argv)
 	forks = NULL;
 	validate(argv, argc);
 	init(argv, &values, &philo, &forks);
-	lets_lunch(philo, values.num_philo);
+	lets_lunch(philo);
 	close_dinner(philo, &values, forks);
 	return (0);
 }

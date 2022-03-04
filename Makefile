@@ -3,9 +3,9 @@ NAME_BONUS =
 
 CC = gcc
 
-# CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -pthread -g -Wall -Werror -Wextra 
 
-CFLAGS = -g -pthread
+
 
 RM = rm -rf
 

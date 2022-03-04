@@ -3,7 +3,7 @@
 void	set_values(char **argv, t_values *values)
 {
 	if (!values)
-		values = (t_values *)ft_calloc(sizeof(t_values), 1);	
+		values = (t_values *)ft_calloc(sizeof(t_values), 1);
 	values->num_philo = ft_atoi(argv[1]);
 	values->time_die = ft_atoi(argv[2]);
 	values->time_eat = ft_atoi(argv[3]);
@@ -15,17 +15,23 @@ void	set_values(char **argv, t_values *values)
 	values->one_philo = 0;
 	if (values->num_philo == 1)
 		values->one_philo = 1;
-	values->someone_die = 0;	
+	values->someone_die = 0;
 }
 
 void	start_mutex(t_values *values)
 {
-	values->died_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
-	values->eating_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
-	values->info_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
-	values->last_meal_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
-	values->check_meals_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
-	if (!values->died_locker || !values->eating_locker || !values->info_locker || !values->died_locker)
+	values->died_locker = (pthread_mutex_t *) \
+	ft_calloc(sizeof(pthread_mutex_t), 1);
+	values->eating_locker = (pthread_mutex_t *) \
+	ft_calloc(sizeof(pthread_mutex_t), 1);
+	values->info_locker = (pthread_mutex_t *) \
+	ft_calloc(sizeof(pthread_mutex_t), 1);
+	values->last_meal_locker = (pthread_mutex_t *) \
+	ft_calloc(sizeof(pthread_mutex_t), 1);
+	values->check_meals_locker = (pthread_mutex_t *) \
+	ft_calloc(sizeof(pthread_mutex_t), 1);
+	if (!values->died_locker || !values->eating_locker || \
+	!values->info_locker || !values->died_locker)
 		free_exit(values);
 	pthread_mutex_init(values->died_locker, NULL);
 	pthread_mutex_init(values->last_meal_locker, NULL);
@@ -79,7 +85,8 @@ void	create_philos(t_philo **philo, t_values *values, pthread_mutex_t **forks)
 	(*philo)[id].left_fork = &(*forks)[0];
 }
 
-void	init(char **argv, t_values *values, t_philo **philo, pthread_mutex_t **forks)
+void	init(char **argv, t_values *values, t_philo **philo, \
+pthread_mutex_t **forks)
 {
 	set_values(argv, &(*values));
 	start_mutex(values);

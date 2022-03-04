@@ -19,11 +19,11 @@ typedef struct s_values{
 	int				must_eat;
 	int				someone_die;
 	long			first_eat;
-	pthread_mutex_t *info_locker;
-	pthread_mutex_t *check_meals_locker;
-	pthread_mutex_t *last_meal_locker;
-	pthread_mutex_t *died_locker;
-	pthread_mutex_t *eating_locker;
+	pthread_mutex_t	*info_locker;
+	pthread_mutex_t	*check_meals_locker;
+	pthread_mutex_t	*last_meal_locker;
+	pthread_mutex_t	*died_locker;
+	pthread_mutex_t	*eating_locker;
 }	t_values;
 
 typedef struct s_philo{
@@ -34,7 +34,7 @@ typedef struct s_philo{
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	t_values		*values;
-} t_philo;
+}	t_philo;
 
 // Informations
 void	show_inform(t_philo *philo, char *what_is_doing);
@@ -44,7 +44,7 @@ void	validate(char **argv, int argc);
 
 //  Lunching
 void	*one_philo(t_philo *philo);
-void	lets_lunch(t_philo *philo, int num_philos);
+void	lets_lunch(t_philo *philo);
 void	lunching(t_philo *philo);
 int		check_satisfaction(t_philo *philo);
 int		satisfied(t_philo *philo);
@@ -55,7 +55,8 @@ int		check_die(long time, t_philo *philo);
 void	declare_death(t_philo *philo);
 
 // Init
-void	init(char **argv, t_values *values, t_philo **philo, pthread_mutex_t **forks);
+void	init(char **argv, t_values *values, t_philo **philo, \
+pthread_mutex_t **forks);
 
 // Time
 long	current_time(void);
@@ -75,6 +76,5 @@ void	close_dinner(t_philo *philo, t_values *values, pthread_mutex_t *forks);
 void	*ft_calloc(size_t nbytes, size_t sizemem);
 int		ft_atoi(const char *str);
 int		is_digit(char x);
-
 
 #endif

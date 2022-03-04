@@ -25,11 +25,10 @@ void	clean_all(t_philo *philo, t_values *values, pthread_mutex_t *forks)
 	int	i;
 
 	i = 0;
-	while (i< values->num_philo)
+	while (i < values->num_philo)
 	{
 		pthread_mutex_destroy(&forks[i]);
 		i++;
-	
 	}
 	free(philo);
 	destroy_mutex_values(values, forks);

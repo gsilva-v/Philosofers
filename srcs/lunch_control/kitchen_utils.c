@@ -8,8 +8,6 @@ int	check_die(long time, t_philo *philo)
 	pthread_mutex_lock(philo->values->last_meal_locker);
 	last_eat = philo->last_eat;
 	pthread_mutex_unlock(philo->values->last_meal_locker);
-	// printf("\n\ncheck die: \nlast_eat == %ld\n\ntime to die == %d\n\ncurrent time == %ld\n\n", last_eat, philo->values->time_die, time);
-
 	if (time - last_eat > philo->values->time_die)
 	{
 		printf("retornou 1\n");

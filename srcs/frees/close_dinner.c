@@ -14,7 +14,6 @@ void	clean_table(t_philo *philo, pthread_mutex_t *forks)
 	free(forks);
 }
 
-
 void	erase_values(t_values *values)
 {
 	pthread_mutex_destroy(values->check_meals_locker);
