@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:24 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 11:14:28 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:26:18 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,6 @@ pthread_mutex_t **forks)
 	*philo = (t_philo *) ft_calloc(sizeof(t_philo), values->num_philo);
 	if (!*philo)
 		clean_all(*philo, values, *forks);
-	/*
-		aqui sera criado os filosofos e os garfos, como o numero de garfos 
-		é o mesmo de filosofos, a criação é dessa maneira.
-		a atribuição dos garfos é: o filosofo atual recebe um garfo a esquerda que tem o 
-		mesmo id que ele, e a direita recebe um id maior, assim quando chegar no proximo filosofo
-		o atual ja tera um garfo certo pra colocar a sua esquerda, no fim, voltamos um id para alocar
-		o garfo inicial a direita do ultimo filosofo.
-	*/
 	while (id < values->num_philo)
 	{
 		(*philo)[id].id = id + 1;

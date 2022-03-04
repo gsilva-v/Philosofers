@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:34 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 11:16:15 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:26:03 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*philo_routine(void *philo)
 
 	aux = (t_philo *)philo;
 	if (aux->id % 2 == 0)
-		miliseconds_sleep(5);//isso é para nao haver corrida de dados
+		miliseconds_sleep(5);
 	if (aux->values->one_philo)
 		return (one_philo(philo));
 	while (!someone_died(philo))
