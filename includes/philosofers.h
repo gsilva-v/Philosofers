@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:12 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 11:16:52 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:06:14 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 
 # define INT_MAX 2147483647
 # define FORK "has taken a fork"
-# define SLEEP "sleeping"
-# define THINK "thinking"
+# define SLEEP "is sleeping"
+# define THINK "is thinking"
+# define EAT "is eating"
 # define DIED "died"
-# define EAT "eating"
 
 typedef struct s_values{
 	int				one_philo;
