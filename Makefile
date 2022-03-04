@@ -27,10 +27,10 @@ PATH_VALID = $(PATH_SRC)validates/
 PATH_OBJS = ./objs/
 
 SRCS =	$(PATH_MAIN)main.c \
-		$(PATH_FREE)initial_frees.c \
+		$(PATH_FREE)initial_frees.c $(PATH_FREE)close_dinner.c\
 		$(PATH_INIT)init.c \
 		$(PATH_LOG)infos.c \
-		$(PATH_LUNCH)lunch.c $(PATH_LUNCH)kitchen.c\
+		$(PATH_LUNCH)lunch.c $(PATH_LUNCH)kitchen.c $(PATH_LUNCH)kitchen_utils.c\
 		$(PATH_MSG)error_message.c \
 		$(PATH_TIME)time.c\
 		$(PATH_UTILS)ft_calloc.c $(PATH_UTILS)ft_atoi.c $(PATH_UTILS)is_digit.c \

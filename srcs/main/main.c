@@ -11,8 +11,6 @@ int	main(int argc, char **argv)
 	validate(argv, argc);
 	init(argv, &values, &philo, &forks);
 	lets_lunch(philo, values.num_philo);
-	printf("deu tudo certo!!\n");
-	
-	
+	close_dinner(philo, &values, forks);
 	return (0);
 }

@@ -43,10 +43,16 @@ void	show_inform(t_philo *philo, char *what_is_doing);
 void	validate(char **argv, int argc);
 
 //  Lunching
+void	*one_philo(t_philo *philo);
 void	lets_lunch(t_philo *philo, int num_philos);
 void	lunching(t_philo *philo);
+int		check_satisfaction(t_philo *philo);
 int		satisfied(t_philo *philo);
+
+// Checker die
 int		someone_died(t_philo *philo);
+int		check_die(long time, t_philo *philo);
+void	declare_death(t_philo *philo);
 
 // Init
 void	init(char **argv, t_values *values, t_philo **philo, pthread_mutex_t **forks);
@@ -63,6 +69,7 @@ void	print_and_exit(char *s);
 void	free_exit(t_values *values);
 void	destroy_mutex_values(t_values *values, pthread_mutex_t *forks);
 void	clean_all(t_philo *philo, t_values *values, pthread_mutex_t *forks);
+void	close_dinner(t_philo *philo, t_values *values, pthread_mutex_t *forks);
 
 // Utils
 void	*ft_calloc(size_t nbytes, size_t sizemem);

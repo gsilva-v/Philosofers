@@ -24,10 +24,12 @@ void	start_mutex(t_values *values)
 	values->eating_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
 	values->info_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
 	values->last_meal_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
+	values->check_meals_locker = (pthread_mutex_t *) ft_calloc(sizeof(pthread_mutex_t), 1);
 	if (!values->died_locker || !values->eating_locker || !values->info_locker || !values->died_locker)
 		free_exit(values);
 	pthread_mutex_init(values->died_locker, NULL);
 	pthread_mutex_init(values->last_meal_locker, NULL);
+	pthread_mutex_init(values->check_meals_locker, NULL);
 	pthread_mutex_init(values->info_locker, NULL);
 	pthread_mutex_init(values->eating_locker, NULL);
 }
