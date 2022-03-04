@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosofers.h                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:12:12 by gsilva-v          #+#    #+#             */
+/*   Updated: 2022/03/04 11:16:52 by gsilva-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILOSOFERS_H
 # define PHILOSOFERS_H
 
@@ -9,6 +21,11 @@
 # include <sys/time.h>
 
 # define INT_MAX 2147483647
+# define FORK "has taken a fork"
+# define SLEEP "sleeping"
+# define THINK "thinking"
+# define DIED "died"
+# define EAT "eating"
 
 typedef struct s_values{
 	int				one_philo;

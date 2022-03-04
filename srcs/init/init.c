@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:12:24 by gsilva-v          #+#    #+#             */
+/*   Updated: 2022/03/04 11:14:28 by gsilva-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <philosofers.h>
 
-void	set_values(char **argv, t_values *values)
+static void	set_values(char **argv, t_values *values)
 {
 	if (!values)
 		values = (t_values *)ft_calloc(sizeof(t_values), 1);
@@ -18,7 +30,7 @@ void	set_values(char **argv, t_values *values)
 	values->someone_die = 0;
 }
 
-void	start_mutex(t_values *values)
+static void	start_mutex(t_values *values)
 {
 	values->died_locker = (pthread_mutex_t *) \
 	ft_calloc(sizeof(pthread_mutex_t), 1);
@@ -40,7 +52,8 @@ void	start_mutex(t_values *values)
 	pthread_mutex_init(values->eating_locker, NULL);
 }
 
-void	start_forks(t_values *values, pthread_mutex_t **forks, int num_philo)
+static void	start_forks(t_values *values, pthread_mutex_t **forks, \
+int num_philo)
 {
 	int	index;
 
@@ -55,7 +68,8 @@ void	start_forks(t_values *values, pthread_mutex_t **forks, int num_philo)
 	}
 }
 
-void	create_philos(t_philo **philo, t_values *values, pthread_mutex_t **forks)
+static void	create_philos(t_philo **philo, t_values *values, \
+pthread_mutex_t **forks)
 {
 	int	id;
 

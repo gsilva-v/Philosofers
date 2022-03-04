@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   kitchen.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:12:31 by gsilva-v          #+#    #+#             */
+/*   Updated: 2022/03/04 11:17:46 by gsilva-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <philosofers.h>
 
 void	*one_philo(t_philo *philo)
 {
 	pthread_mutex_lock(philo->left_fork);
-	show_inform(philo, "has taken a fork");
+	show_inform(philo, FORK);
 	pthread_mutex_unlock(philo->left_fork);
-	return(NULL);
+	return (NULL);
 }
 
 int	someone_died(t_philo *philo)
@@ -59,9 +71,9 @@ void	lunching(t_philo *philo)
 		pthread_mutex_unlock(philo->right_fork);
 		pthread_mutex_unlock(philo->left_fork);
 	}
-	show_inform(philo, "has taken a fork");
-	show_inform(philo, "has taken a fork");
-	show_inform(philo, "eating");
+	show_inform(philo, FORK);
+	show_inform(philo, FORK);
+	show_inform(philo, EAT);
 	miliseconds_sleep(philo->values->time_eat);
 	pthread_mutex_lock(philo->values->last_meal_locker);
 	philo->last_eat = passed_time(philo->values->first_eat);

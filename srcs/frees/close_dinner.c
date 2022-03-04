@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   close_dinner.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:12:18 by gsilva-v          #+#    #+#             */
+/*   Updated: 2022/03/04 11:13:29 by gsilva-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <philosofers.h>
 
-void	clean_table(t_philo *philo, pthread_mutex_t *forks)
+static void	clean_table(t_philo *philo, pthread_mutex_t *forks)
 {
 	int	i;
 
@@ -14,7 +26,7 @@ void	clean_table(t_philo *philo, pthread_mutex_t *forks)
 	free(forks);
 }
 
-void	erase_values(t_values *values)
+static void	erase_values(t_values *values)
 {
 	pthread_mutex_destroy(values->check_meals_locker);
 	pthread_mutex_destroy(values->died_locker);

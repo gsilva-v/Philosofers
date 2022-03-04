@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lunch.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/04 11:12:34 by gsilva-v          #+#    #+#             */
+/*   Updated: 2022/03/04 11:16:15 by gsilva-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <philosofers.h>	
 
 void	*philo_routine(void *philo)
@@ -6,7 +18,7 @@ void	*philo_routine(void *philo)
 
 	aux = (t_philo *)philo;
 	if (aux->id % 2 == 0)
-		miliseconds_sleep(4);//isso é para nao haver corrida de dados
+		miliseconds_sleep(5);//isso é para nao haver corrida de dados
 	if (aux->values->one_philo)
 		return (one_philo(philo));
 	while (!someone_died(philo))
@@ -14,9 +26,9 @@ void	*philo_routine(void *philo)
 		lunching(philo);
 		if (satisfied(philo))
 			return (NULL);
-		show_inform(philo, "sleeping");
+		show_inform(philo, SLEEP);
 		miliseconds_sleep(aux->values->time_sleep);
-		show_inform(philo, "thinking");
+		show_inform(philo, THINK);
 	}
 	return (NULL);
 }
@@ -37,7 +49,7 @@ void	*death_checker(void *philo)
 			time = passed_time(aux->values->first_eat);
 			if (check_die(time, aux))
 			{
-				show_inform(&aux[counter_philo], "died");
+				show_inform(&aux[counter_philo], DIED);
 				declare_death(&aux[counter_philo]);
 				return (NULL);
 			}
