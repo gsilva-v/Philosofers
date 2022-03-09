@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:34 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/08 16:45:21 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/09 09:36:50 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,33 +33,42 @@ void	*philo_routine(void *philo)
 	return (NULL);
 }
 
+
+int	death_watcher(t_philo *aux, int counter_philo)
+{
+	long	time;
+	
+	while (counter_philo < aux->values->num_philo)
+	{
+		time = passed_time(aux->values->first_eat);
+		if (aux[counter_philo].is_eating)
+		{
+			counter_philo++;
+			continue;
+		}
+		if (check_die(time, aux))
+		{
+			show_inform(&aux[counter_philo], DIED);
+			declare_death(&aux[counter_philo]);
+			return (1);
+		}
+		counter_philo++;
+	}
+	return (0);
+}
+
+
 void	*death_checker(void *philo)
 {
 	t_philo	*aux;
-	long	time;
 	int		counter_philo;
 
-	time = 0;
 	aux = (t_philo *)philo;
 	while (!check_satisfaction(aux))
 	{
 		counter_philo = 0;
-		while (counter_philo < aux->values->num_philo)
-		{
-			time = passed_time(aux->values->first_eat);
-			if (aux[counter_philo].is_eating)
-			{
-				counter_philo++;
-				continue;
-			}
-			if (check_die(time, aux))
-			{
-				show_inform(&aux[counter_philo], DIED);
-				declare_death(&aux[counter_philo]);
-				return (NULL);
-			}
-			counter_philo++;
-		}
+		if (death_watcher(aux, counter_philo))
+			return (NULL);
 		miliseconds_sleep(1);
 	}
 	return (NULL);
