@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:24 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 13:26:18 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/08 16:37:29 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ pthread_mutex_t **forks)
 		clean_all(*philo, values, *forks);
 	while (id < values->num_philo)
 	{
+		(*philo)[id].eating = (pthread_mutex_t *) \
+		ft_calloc(sizeof(pthread_mutex_t), 1);
+		pthread_mutex_init((*philo)[id].eating, NULL);
 		(*philo)[id].id = id + 1;
 		(*philo)[id].last_eat = 0;
 		(*philo)[id].eat_counter = 0;

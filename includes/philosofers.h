@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:12 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 13:06:14 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/08 16:34:34 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_philo{
 	int				id;
 	int				eat_counter;
 	long			last_eat;
+	pthread_mutex_t	*eating;
+	int				is_eating;
 	pthread_t		philos_thread;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
