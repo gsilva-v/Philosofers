@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lunch.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:34 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/09 09:36:50 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/09 13:41:49 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,17 @@ void	*philo_routine(void *philo)
 	return (NULL);
 }
 
-
 int	death_watcher(t_philo *aux, int counter_philo)
 {
 	long	time;
-	
+
 	while (counter_philo < aux->values->num_philo)
 	{
 		time = passed_time(aux->values->first_eat);
 		if (aux[counter_philo].is_eating)
 		{
 			counter_philo++;
-			continue;
+			continue ;
 		}
 		if (check_die(time, aux))
 		{
@@ -56,7 +55,6 @@ int	death_watcher(t_philo *aux, int counter_philo)
 	}
 	return (0);
 }
-
 
 void	*death_checker(void *philo)
 {
