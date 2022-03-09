@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:18 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 11:13:29 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/09 10:13:40 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	clean_table(t_philo *philo, pthread_mutex_t *forks)
 	while (i < philo->values->num_philo)
 	{
 		pthread_mutex_destroy(&forks[i]);
+		pthread_mutex_destroy(philo[i].eating);
+		free(philo[i].eating);
 		i++;
 	}
 	free(philo);
