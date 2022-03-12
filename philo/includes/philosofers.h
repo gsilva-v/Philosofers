@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:12 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/09 10:08:29 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/12 08:16:51 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define THINK "is thinking"
 # define EAT "is eating"
 # define DIED "died"
+# define INVALID_ARG "invalid argument, use only positive number"
 
 typedef struct s_values{
 	int				one_philo;
@@ -95,5 +96,6 @@ void	close_dinner(t_philo *philo, t_values *values, pthread_mutex_t *forks);
 void	*ft_calloc(size_t nbytes, size_t sizemem);
 int		ft_atoi(const char *str);
 int		is_digit(char x);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

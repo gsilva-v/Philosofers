@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:58 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/04 11:12:59 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/12 08:03:46 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ static int	check_if_is_digit_only(char **argv)
 	{
 		j = 0;
 		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < 0)
+		{
+			if (ft_strncmp(argv[i], "-", -1))
+				print_and_exit(INVALID_ARG);
 			return (1);
+		}
 		while (argv[i][j])
 		{
 			if (is_digit(argv[i][j]))

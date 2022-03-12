@@ -34,7 +34,8 @@ SRCS =	$(PATH_MAIN)main.c \
 		$(PATH_MSG)error_message.c \
 		$(PATH_TIME)time.c\
 		$(PATH_UTILS)ft_calloc.c $(PATH_UTILS)ft_atoi.c $(PATH_UTILS)is_digit.c \
-		$(PATH_VALID)validate.c \
+		$(PATH_UTILS)ft_strncmp.c\
+		$(PATH_VALID)validate.c 
 
 OBJS = $(patsubst $(PATH_SRC)%.c, $(PATH_OBJS)%.o, $(SRCS))
 
