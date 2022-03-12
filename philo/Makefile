@@ -1,10 +1,9 @@
 NAME = philo
 
-
 CC = gcc
 
 CFLAGS_SANITIZE =  -fsanitize=thread
-CFLAGS = -pthread -g -Wall -Werror -Wextra 
+CFLAGS = -pthread -g -Wall -Werror -Wextra
 
 RM = rm -rf
 
