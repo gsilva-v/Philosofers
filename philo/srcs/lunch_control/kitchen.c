@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:31 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/09 09:16:30 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/12 09:47:31 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,20 @@ void	lunching(t_philo *philo)
 	pthread_mutex_lock(philo->left_fork);
 	if (someone_died(philo))
 	{
-		pthread_mutex_unlock(philo->right_fork);
 		pthread_mutex_unlock(philo->left_fork);
+		pthread_mutex_unlock(philo->right_fork);
+		return ;
 	}
 	show_inform(philo, FORK);
 	show_inform(philo, FORK);
-	pthread_mutex_lock(philo->eating);
-	philo->is_eating = 1;
 	pthread_mutex_lock(philo->values->last_meal_locker);
 	philo->last_eat = passed_time(philo->values->first_eat);
-	philo->eat_counter++;
 	pthread_mutex_unlock(philo->values->last_meal_locker);
+	pthread_mutex_lock(philo->values->check_meals_locker);
+	philo->eat_counter++;
+	pthread_mutex_unlock(philo->values->check_meals_locker);
 	show_inform(philo, EAT);
 	miliseconds_sleep(philo->values->time_eat);
-	philo->is_eating = 0;
-	pthread_mutex_unlock(philo->eating);
-	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(philo->right_fork);
 }

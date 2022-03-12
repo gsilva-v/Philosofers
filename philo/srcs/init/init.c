@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:24 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/09 10:12:30 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/12 08:58:21 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,21 @@ static void	start_mutex(t_values *values)
 {
 	values->died_locker = (pthread_mutex_t *) \
 	ft_calloc(sizeof(pthread_mutex_t), 1);
-	values->eating_locker = (pthread_mutex_t *) \
-	ft_calloc(sizeof(pthread_mutex_t), 1);
 	values->info_locker = (pthread_mutex_t *) \
 	ft_calloc(sizeof(pthread_mutex_t), 1);
 	values->last_meal_locker = (pthread_mutex_t *) \
 	ft_calloc(sizeof(pthread_mutex_t), 1);
 	values->check_meals_locker = (pthread_mutex_t *) \
 	ft_calloc(sizeof(pthread_mutex_t), 1);
-	if (!values->died_locker || !values->eating_locker || \
-	!values->info_locker || !values->died_locker)
+	values->set_time_locker = (pthread_mutex_t *) \
+	ft_calloc(sizeof(pthread_mutex_t), 1);
+	if (!values->died_locker || !values->info_locker || !values->died_locker)
 		free_exit(values);
 	pthread_mutex_init(values->died_locker, NULL);
 	pthread_mutex_init(values->last_meal_locker, NULL);
 	pthread_mutex_init(values->check_meals_locker, NULL);
 	pthread_mutex_init(values->info_locker, NULL);
-	pthread_mutex_init(values->eating_locker, NULL);
+	pthread_mutex_init(values->set_time_locker, NULL);
 }
 
 static void	start_forks(t_values *values, pthread_mutex_t **forks, \

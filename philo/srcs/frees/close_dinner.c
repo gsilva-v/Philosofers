@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:18 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/09 10:13:40 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/12 08:57:46 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ static void	erase_values(t_values *values)
 {
 	pthread_mutex_destroy(values->check_meals_locker);
 	pthread_mutex_destroy(values->died_locker);
-	pthread_mutex_destroy(values->eating_locker);
 	pthread_mutex_destroy(values->info_locker);
 	pthread_mutex_destroy(values->last_meal_locker);
 	free(values->check_meals_locker);
 	free(values->died_locker);
-	free(values->eating_locker);
 	free(values->info_locker);
 	free(values->last_meal_locker);
 }

@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 11:12:12 by gsilva-v          #+#    #+#             */
-/*   Updated: 2022/03/12 08:16:51 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/03/12 08:58:24 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_values{
 	pthread_mutex_t	*check_meals_locker;
 	pthread_mutex_t	*last_meal_locker;
 	pthread_mutex_t	*died_locker;
-	pthread_mutex_t	*eating_locker;
+	pthread_mutex_t	*set_time_locker;
+
 }	t_values;
 
 typedef struct s_philo{
